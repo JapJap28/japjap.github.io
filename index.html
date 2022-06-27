@@ -1,652 +1,349 @@
-<!-- /*
-* Template Name: Style
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="myfreebingocards.com" />
+<meta property="og:title" content="CSC BINGO" />
+<meta property="og:description" content="Play virtual CSC BINGO with your friends for free on any device. Customize the bingo cards and generate printable or virtual bingo cards for free." />
+<meta property="og:image" content="https://myfreebingocards.com/p/jcs9jqg/pin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://mfbc.us/m/jcs9jqg">
+<meta name="twitter:title" content="CSC BINGO">
+<meta name="twitter:description" content="Play virtual CSC BINGO with your friends for free on any device. Customize the bingo cards and generate printable or virtual bingo cards for free.">
+<meta name="twitter:image" content="https://myfreebingocards.com/p/jcs9jqg">
+<meta name="twitter:site" content="@myfreebingocard">
+<meta name="twitter:creator" content="@myfreebingocard">
+<style type='text/css'>
+html, body { height: 100%; padding: 0; margin: 0; } 
+@media only screen {
+html, body {
+  background: #dbecf4; }
+}
+@media only screen { 
+  html, body {height: auto;} 
+  body {margin-left: auto;margin-right: auto;} 
+} 
+#bingo-holder {
+clear: both;
+width: 468px; height: 560px;
+margin: 0 auto 0;
+background-repeat: no-repeat;
+background-size: 468px;
+}
+.cross {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB94LAgwWBsXYx+MAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAOVBMVEUAAAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD+TVPmiymZAAAAEnRSTlMABAsQEyVDZGVsfYWZo66ztL83Z3pqAAAAAWJLR0QSe7xsAAAABEhJREFUeNrtnQl22kAQBQXGGGyDw/0vG8dLWLTN8mf69+tfB8hTlWQCGml6GIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQNu21s/83pGNr/+e3y8fIU2v/iqsB2h/d3VeB42uD9/RR4evm4vD3j/b0U+Od/wRW48fdR4NsfVuDO30OBX39QgQd//gJXf0iBzftlxMGLP6DA6PyzXwP3/tUFJv2ZCzz6VxaY8ScucBgf6/sG789aYHz+q66Bqc8/6k/Caf/iAgvnn/MamPMvLLDiz1dg3r+owKo/XYHD0rFmfxIm+HMVWDr/BddAkj9TgTX/zAKJ/jwF1v2zCiT7sxRI8c8okOHPUSDNP7lAlj9DgVT/xAKZ/vbfCdP9kwrk+xtfAzn+CQUK/G0L5PmvFijyNy1wyD3WxQKF/nYFcs//SoFif6sCJf4LBZZ//xMWKPOfLVBx/m0KlPrPFKj071+g3H+yQLV/7wI1/hP3BwD+nxy9+I+ugarPvyuvOy/+DwUw5x+5It/c/+5o3fkPR+jx+vPfvUKO+OeTEPT339Efe878nX9sAZ/+uAJ7p/6wAn+8+sMKuPUnKmDkT1PAzJ+kgKE/RQFTf4ICxv7mBcz9jQsQ+JsWoPA3LEDib1aAxt+oAJG/SQEqf4MCZP7dC9D5dy5A6N+1AKV/xwKk/t0K0Pp3KkDs36UAtX+HAuT+zQvQ+zcu4MC/aQEX/g0LOPFvVsCNf6MCjvybFHDl36CAM394AXf+4AIO/aEFXPoDCzj1H4b9GeJ/3jv1j34FRP8MiP6/QPTvAdG/CUb/LRD912D0+wHR7whFvycY/a5w9HWB6CtD0dcGo68OR38+IPoTItGfEYr+lFj05wSjPyka/Vnh6E+LR39fIPobI9HfGYr+1lj09wajvzka/d3h6G+PR98/IPoOEtH3EAH5n70WiL6PUPSdpKLvJYY9Zn8F0EfsrQD+eH0VaHG0ngq0OVY/BUC7aY6O1E2BLWA/2VY7S/cpAN5RN2SBNrvL+ykwe4SgAu33164r0GbCxJWPl+3AXKDNjJFb/x577INnKwAL9JoxAJ6uASvQb8YCeL4KqEDPGRPgCTuQAuwzNtpMm7Pyh0/Zqi7APmenzcRJS3/4pL2qAuyzttpMnbX2h0/bLC5gN28PPG+1sAD7xMU2s8c5/OEzlwsKWM+dBU/dzi7APne34g6NmwnsSwWq7lAlFGCfvV15h261APv09eo7lCsFWPznCgDu0C4W4PGfLgC5Q71QgMl/qgDoDv1sAS7/cQHYCsVMATb/xwLAFZrJAnz+9wWgK1QTBRj9bwuAV+hGBTj9rwXgK5QPBVj9fws0WKG9K8Dr/12gyQr1TQFm/0+Op02Tf/d/AXL/Ydtqff6nALt/Q74KBPb/KhDafxg2p+MQm912EEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCJPEX7vve6AkDdfcAAAAASUVORK5CYII=);
+opacity: 0;
+filter: alpha(opacity=0);
+}
 
-  <meta name="description" content="" />
-  <meta name="keywords" content="free template, bootstrap, bootstrap4" />
+.cross, .name-holder {
+box-sizing: border-box;
+padding: 0;
+ width: 73px; height: 73px; background-size: 73px;
+}
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/animate.min.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="fonts/feather/style.css">
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/style.css">
+.name-holder textarea {
+  width: 86%; margin: 55% auto 0;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #888;
+  border-radius: 3px;
+  padding: 1px 0;
+  text-align: center;
+  resize: none;
+  height: 37%;
+  overflow: hidden;
+  font-family: Arial;
+  font-size: inherit;
+}
 
-  <title>Style Free HTML Template by Untree.co</title>
+table {
+    margin: 0 auto;
+    position: relative;
+    top: 152px;
+    border-spacing: 1px;
+}
+
+
+#nav {
+    position: static;
+    margin: 0px auto 8px;
+    width: 468px;
+    background: #F9F9F9;
+    padding: 5px 12px 2px;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+#loader-holder {
+    background-image: url(/images/ajax-loader.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+}
+
+.cross:hover { cursor: pointer; }
+td { padding: 0; margin: 0; border: 0px none; }
+
+#nav td { width: 20%; }
+#nav a { text-decoration: none; color: #333; font-family: arial, sans; font-size: 12px; }
+#nav a:hover { text-decoration: underline; }
+#nav img { width: 35px; height: 28px; padding: 0; margin-bottom: -4px; }
+
+.print-image {
+  display: none;
+  width: 556px;
+  margin: 10px auto 0px;
+}
+.bingo-card-id, .bingo-card-id-main, .bingo-card-id-main a {
+    text-align: left;
+    font-family: monospace;
+    font-size: 18px;
+    color: #666;
+    text-decoration: none;
+}
+#new-card { text-decoration: underline; }
+#new-card:hover { color: #222; }
+.bingo-card-id-main {
+    width: 468px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 10px 0;
+}
+.free-card-fixed .bingo-card-id-main, .free-card-rand .bingo-card-id-main { margin-bottom: 2px; }
+.bingo-card-id-main #new-card:hover {cursor: pointer; text-decoration: underline;}
+
+.fixed-only { display: none; }
+.free-card-fixed .fixed-only { display: inline; }
+.free-card-fixed .not-fixed { display: none; }
+
+@media print {
+html { height: auto; zoom: 0.7; transform: rotate(90deg);}
+#nav {display: none;}
+#ad-holder {display: none;}
+html,body {background-color: white;}
+.print-image { display: block; }
+img.print-image { page-break-after: auto; }
+.main, #new-card { display: none; }
+}
+.modal {display: none;}
+</style>
+<meta name="viewport" content="width=468, user-scalable=yes">
+<title>Virtual CSC BINGO</title>
+<meta name="description" content="Play virtual CSC BINGO with your friends for free on any device. Customize the bingo cards and generate printable or virtual bingo cards for free.">
 </head>
 <body>
-  <div class="lines-wrap">
-    <div class="lines-inner">
-      <div class="lines"></div>
-    </div>
-  </div>
-  <!-- END lines -->
-
-
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close">
-        <span class="icofont-close js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-
-
-  <nav class="site-nav">
-    <div class="container">
-      <div class="site-navigation">
-        <a href="index.html" class="logo float-left m-0">Style <span class="text-primary">.</span></a>
-
-        <ul class="js-clone-nav d-none d-lg-inline-noone text-left site-menu">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li class="has-children">
-            <a href="#">Pages</a>
-            <ul class="dropdown">
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="single.html">Single</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-
-              <li class="has-children">
-                <a href="#">Menu Two</a>
-                <ul class="dropdown">
-                  <li><a href="#">Sub Menu One</a></li>
-                  <li><a href="#">Sub Menu Two</a></li>
-                  <li><a href="#">Sub Menu Three</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Menu Three</a></li>
-            </ul>
-          </li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="elements.html">Elements</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-
-        <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-block" data-toggle="collapse" data-target="#main-navbar">
-          <span></span>
-        </a>
-
-      </div>
-    </div>
-  </nav>
-
-
-  <div class="custom-hero">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <h1 class="hero-heading">Harjap Saini</h1>
-          <div  class="line js-line mx-auto mb-3 my-3"></div>
-          <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-section">
-    <div class="container">
-      <div class="row align-items-center justify-content-around">
-
-        <div class="col-lg-4 text-center">
-
-          <div >
-            <div data-jarallax-element="-100" class="jarallax">
-              <h2>Minimal Design</h2>
-              <span class="d-inline-block">Minimalist Design</span>
-              <img src="images/img_v_2-min.jpg" alt="Image" class="img-fluid my-3 my-lg-5">
-              <p class="line-top fig-2-text mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-5 mt-5">
-
-          <div>
-            <h2>Minimal Watch</h2>
-            <span class="d-inline-block">Innovative Design</span>
-
-            <div  class="line me-auto mb-3 mt-3"></div>
-
-            <p class="line-top fig-2-text my-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <img src="images/img_v_1-min.jpg" alt="Image" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-lg-0 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-2 d-flex align-items-md-center">
-            <div class="image">
-              <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <h2>Sneakers</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 mb-lg-0 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-2 d-flex align-items-md-center">
-            <div class="image">
-              <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <h2>Clothing</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 mb-lg-0 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-2 d-flex align-items-md-center">
-            <div class="image">
-              <img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <h2>Accessories</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  
-
-  <div class="section-4">
-    <div class="container">
-      <div class="row mb-4 align-items-center">
-        <div class="col-6">
-          <h2 class="line-top">Featured Collections</h2>
-        </div>
-        <div class="col-6 text-right">
-          <a href="#" class="custom-prev-v2 js-custom-prev-v2">Prev</a>
-          <span class="mx-3">/</span>
-          <a href="#" class="custom-next-v2 js-custom-next-v2">Next</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="owl-4-slider owl-carousel">
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Man White Blazer</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_6-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-          <div class="product">
-            <a href="#" class="d-block">
-              <img src="images/img_v_4-min.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="text-center text-md-left">
-              <h3>Woman Floral Dress</h3>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-4">
-          <h2>Don't miss the new season 2021 lookbook</h2>
-          <div class="line my-3"></div>
-        </div>
-        <div class="col-lg-4">
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        </div>
-        <div class="col-lg-4">
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-          <p>Far far away, behind the word mountains, far from the countries.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="0">
-          <div class="feature-v3 d-block">
-            <div class="wrap-icon">
-              <i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>
-            </div>
-            <div class="text">
-              <h3>Minimal Design</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-          <div class="feature-v3 d-block">
-            <div class="wrap-icon">
-              <i class="flaticon-weekly-calendar-outline-event-interface-symbol"></i>
-            </div>
-            <div class="text">
-              <h3>Less is more</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-v3 d-block">
-            <div class="wrap-icon">
-              <i class="flaticon-copy-two-paper-sheets-interface-symbol"></i>
-            </div>
-            <div class="text">
-              <h3>Whitespaces</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row justify-content-around align-items-center">
-        <div class="col-lg-6">
-          <div class="image-stack-v2">
-            <div class="image-stack__item image-stack__item--top">
-              <div data-jarallax-element="-100" class="jarallax">
-                <img src="images/img_v_3-min.jpg" alt="Image" class="img-fluid">
-              </div>
-            </div>
-            <div class="image-stack__item image-stack__item--bottom">
-              <img src="images/img_v_8-min.jpg" alt="Image" class="img-fluid">
-            </div>
-          </div>
-
-
-        </div>
-        <div class="col-lg-4">
-
-          <h2 class="mb-4">Don't miss the new season 2021 lookbook</h2>
-          <div class="line my-3"></div>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container pb-5 mb-5 border-bottom">
-    <div class="row justify-content-around">
-      <div class="col-lg-4 mb-4 mb-lg-0">
-
-        <h2 class="mb-4">Why you choose us</h2>
-        <div class="line my-3"></div>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p class="mt-5"><a href="#" class="btn btn-primary">Get In Touch</a></p>
-
-        
-      </div>
-      <div class="col-lg-7">
-        <div class="custom-accordion" id="accordion_1">
-          <div class="accordion-item">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How to download and register?</button>
-            </h2>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion_1">
-              <div class="accordion-body">
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-              </div>
-            </div>
-          </div> <!-- .accordion-item -->
-
-          <div class="accordion-item">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">How to create your paypal account?</button>
-            </h2>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion_1">
-              <div class="accordion-body">
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-              </div>
-            </div>
-          </div> <!-- .accordion-item -->
-          <div class="accordion-item">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">How to link your paypal and bank account?</button>
-            </h2>
-
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion_1">
-              <div class="accordion-body">
-                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-              </div>
-            </div>
-
-          </div> <!-- .accordion-item -->
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-  </div>
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row justify-content-around align-items-center">
-        <div class="col-lg-6 order-lg-2">
-          <div class="image-stack-v2">
-            <div class="image-stack__item image-stack__item--top">
-              <div data-jarallax-element="-100" class="jarallax">
-                <img src="images/img_v_7-min.jpg" alt="Image" class="img-fluid">
-              </div>
-            </div>
-            <div class="image-stack__item image-stack__item--bottom">
-              <img src="images/img_v_5-min.jpg" alt="Image" class="img-fluid">
-            </div>
-          </div>
-
-
-        </div>
-        <div class="col-lg-4">
-
-          <h2 class="mb-4">Don't miss the new season 2021 lookbook</h2>
-          <div class="line my-3"></div>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-7">
-          <h2 class="mb-4">Blog Posts</h2>
-          <div class="line my-3"></div>
-        </div>
-      </div>
-      <div class="row">
-
-
-        <div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
-          <div class="blog_entry">
-            <a href="single.html"><img src="images/img_h_3-min.jpg" alt="Free Website Template by Untree.co" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <h3><a href="single.html">Far far away, behind the word mountains</a></h3>
-              <span class="date">April 25, 2019</span>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
-          <div class="blog_entry">
-            <a href="single.html"><img src="images/img_h_5-min.jpg" alt="Free Website Template by Untree.co" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <h3><a href="single.html">Far far away, behind the word mountains</a></h3>
-              <span class="date">April 25, 2019</span>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
-          <div class="blog_entry">
-            <a href="single.html"><img src="images/img_h_7-min.jpg" alt="Free Website Template by Untree.co" class="img-fluid"></a>
-            <div class="p-4 bg-white">
-              <h3><a href="single.html">Far far away, behind the word mountains</a></h3>
-              <span class="date">April 25, 2019</span>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p class="more"><a href="#">Read more...</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="custom-hero section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <h1>Let's Get Started</h1>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-footer">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-lg-4">
-          <div class="widget">
-            <h3>About</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-          </div>
-          <div class="widget">
-            <h3>Connect with us</h3>
-            <ul class="social list-unstyled">
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-dribbble"></span></a></li>
-              <li><a href="#"><span class="icon-linkedin"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="row">
-            <div class="col-12">
-              <div class="widget">
-                <h3>Navigations</h3>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4">
-              <div class="widget">
-                <ul class="links list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Work</a></li>
-                  <li><a href="#">Process</a></li>
-                  <li><a href="#">About Us</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4">
-              <div class="widget">
-                <ul class="links list-unstyled">
-                  <li><a href="#">Press</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Support</a></li>
-                  <li><a href="#">Privacy</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-4">
-              <div class="widget">
-                <ul class="links list-unstyled">
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Process</a></li>
-                  <li><a href="#">About Us</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center text-center copyright">
-        <div class="col-md-8">
-          <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> <!-- License information: https://untree.co/license/ -->
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.0.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/imagesloaded.pkgd.js"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jarallax.min.js"></script>
-  <script src="js/jarallax-element.min.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-
-  <script src="js/jquery.lettering.js"></script>
-
-
-  <script src="js/TweenMax.min.js"></script>
-  <script src="js/ScrollMagic.min.js"></script>
-  <script src="js/scrollmagic.animation.gsap.min.js"></script>
-  <script src="js/debug.addIndicators.min.js"></script>
-
-
-  <script src="js/custom.js"></script>
-
-  
+<div class='print-image bingo-card-id'>Bingo Card ID 029</div>
+<img class='print-image' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='>
+<div class='main'>
+<div class='wrapper free-card-fixed'>
+<style>
+#zoom { font-size: 16px; padding: 2px; }
+.modal label {cursor: pointer; line-height: 2em; }
+button {
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #fff;
+    font-family: arial;
+    background: #FF6666;
+    padding: 0 15px;
+    border: 0px none;
+    font-size: 14px;
+    height: 35px;
+}
+button:hover {
+    cursor: pointer;
+    background: #BF3B3B;
+}
+#remote-menu{background:#003360;color:#fff;text-align: center;}
+#remote-menu div {
+box-sizing: border-box;
+padding: 10px 26px 10px 54px;
+background-image: url('/images/logo_mobile.png');
+background-repeat: no-repeat;
+background-position: 10px center;
+background-size: 25px;
+min-height: 38px;
+font-family: arial; font-weight: bold;font-size: 15px; width: 100%; max-width: 488px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; margin: auto;align-items: center;justify-content: space-around;
+;
+}
+@media only screen and (max-width: 600px) {
+  #zoom { font-size: 18px; }
+  #remote-menu div { font-size: 19px; height: 56px; padding-left: 52px; background-size: 30px;}
+}
+@media only print {
+  .modal, .blocker {visibility: hidden;}
+}
+#remote-menu div a {text-decoration:none; color: inherit;}
+#remote-menu div a:hover {text-decoration:underline; }
+html,body{padding:0;margin:0;font-family:arial;}
+@media only screen {body{background: #dbecf4;}html{overflow-x: hidden;}}
+#multi-holder{display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; flex-wrap: wrap; justify-content: center;}
+.iframe-holder{
+  overflow: hidden;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}
+iframe{
+  transform-origin: top left;
+  overflow:hidden;
+}
+</style>
+<div id='help-modal' class='modal'>
+<h3>Bingo Help</h3>
+<p>You have been allocated a random bingo card from a set of 30 different cards.</p>
+<p>Play your bingo card online by tapping the numbers/words as they are called, or <a href='' rel='' onclick='window.print(); return false;'>print your bingo card</a> to mark it on paper.</p>
+<p>You can reuse this card for multiple games. Just <a href='#' onclick='reset_free(); return false;'>reset your card</a> at the end of each game.</p>
+<p>To make your own bingo game <a href='https://myfreebingocards.com/mfbc' target='_blank'>click here</a>. It's quick, easy and free.</p>
+</div>
+<div id='remote-menu'><div><a href='#help-modal' rel='modal:open'>Help</a><a href='https://myfreebingocards.com/mfbc' target='_blank'>Create</a><a href='' onclick='window.print(); return false;'>Print</a></div></div>
+<div class='bingo-card-id-main'><span>Bingo Card ID 029</span>
+<span id='new-card'>Reset</span></div>
+<div id='loader-holder'>
+<div id='bingo-holder' style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=)">
+<table><tr><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td></tr><tr><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td></tr><tr><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td></tr><tr><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td></tr><tr><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td><td title=''><div class='cross'></div></td></tr></table>
+</div>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><script type="text/javascript">
+function is_human_bingo() { return "" === "1"; };
+function pad_id(id) {
+  id = id + '';//force string
+  return ("000" + id).slice(-1 * Math.max(3,id.length));
+}
+var orig_html = $('#bingo-holder')[0].outerHTML;
+
+var item_id = 'bhh' + window.location.pathname.replace(/\//g,'-');
+if(is_human_bingo()) item_id += "_human";
+
+var supports_html5_storage = function() {
+    try {
+        localStorage.setItem('test', 'test');
+        localStorage.removeItem('test');
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+  var update_cache = function() {
+	if(supports_html5_storage()) {
+		//force this to text - otherwise val not picked up by outerhtml
+		$(".name-holder textarea").each(function(){
+			$(this).text($(this).val());
+		});
+    		localStorage.setItem(item_id, $('#bingo-holder')[0].outerHTML);
+	}
+  }
+
+var uncheck_all = function() {
+  $(".cross").css('opacity',0);
+  $(".name-holder textarea").text("");
+}
+
+var init = function() {
+  //first uncheck all
+  uncheck_all();
+  var got_local = 0;
+  if(supports_html5_storage()) {
+    //check for crosses
+    if(localStorage.getItem(item_id)) {
+      got_local = 1;
+      $('#bingo-holder').replaceWith(localStorage.getItem(item_id));
+
+      $('img.print-image').attr('src',$('#bingo-holder').css('background-image').replace('url(','').replace(')','').replace(/\"/gi, "").replace(/\'/gi, ""));
+      if($('#bingo-holder').attr('data-rnd-id') !== undefined) {
+        $('.bingo-card-id-main span').first().append($('#bingo-holder').attr('data-rnd-id'));
+        $('.bingo-card-id').append($('#bingo-holder').attr('data-rnd-id'));
+      }
+    }
+  }
+  if(!got_local) {
+      var img_url = 'mfbc.us/p/jcs9jqg_29/m';
+      if(!img_url) {
+        var rnd = Math.floor(Math.random()*30)+1;
+        var rnd_format = pad_id(rnd);
+        img_url = ''+rnd+'/m';
+        $('.bingo-card-id-main span').first().text("Bingo Card ID " + rnd_format);
+        $('.bingo-card-id').text("Bingo Card ID " + rnd_format);
+      }
+      img_url = "https://" + img_url;
+      $('#bingo-holder').css('background-image','url('+img_url+')');
+      $('#bingo-holder').attr('data-rnd-id',rnd_format);
+      $('img.print-image').attr('src',img_url);
+      update_cache();
+  }
+}
+
+var hide_modal = function() {
+  $(".jquery-modal.blocker").trigger('click');
+}
+
+var regen_free = function() {
+    //clear all checkmarks
+    if(confirm("This will clear your bingo card and allocate a new random bingo card.")) {
+      hide_modal();
+      if(supports_html5_storage()) {
+         localStorage.removeItem(item_id);
+      }
+      init();
+    }
+    return false;
+}
+
+var reset_free = function() {
+    //clear all checkmarks
+    if(confirm("This will clear your bingo card.")) {
+      hide_modal(); //may not even be visible
+//      uncheck_all();
+      $("#bingo-holder").html(orig_html);
+      attach_cross_click();
+      update_cache();
+    }
+}
+
+var attach_cross_click = function() {
+  $(".cross").off("click");
+  $(".cross").click(function(event) {
+      if ($(this).css('opacity') == '1')
+        $(this).animate({'opacity':0},250,function() { update_cache(); })
+      else
+        $(this).animate({'opacity':1},function() { update_cache(); })
+  });
+}
+
+$(document).ready(function(){
+
+  init();
+  attach_cross_click();
+  $("#new-card").click(function(){
+    reset_free();
+    return false;
+  });
+  $(".name-holder textarea").on("change",update_cache);
+});
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.defer=1;a.src=g;s.body.appendChild(a)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-23810499-1', 'auto');
+ga('send', 'pageview');
+</script>
 </body>
 </html>
